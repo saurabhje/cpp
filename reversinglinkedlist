@@ -1,4 +1,4 @@
-// Reversing linked list using the iterator function.
+// Reversing linked list using the iterator function while adding elements in the end of the empty list.
 #include <iostream>
 using namespace std;
 struct node{
@@ -33,6 +33,70 @@ void print(){
 cout << endl; }
 int main() {
 head = NULL;
+cout << "How many elements you want to add in the linked list: \n";
+int n,j;
+cin >>n;
+for(int i=0;i<n;i++){
+    cout << "Enter the number: \n";
+    cin >> j;
+    insert(j);
+}
+cout << "Before reversing the list: \n";
+print();
+revserse();
+cout << "After reversing the list: \n";
+print();
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Reversing the list while adding the element at the end of the program.
+
+
+// Reversing linked list using the iterator function.
+#include <iostream>
+using namespace std;
+struct node{
+    int data;
+    node * next;
+};
+struct node * head,*tail = NULL;
+void insert(int data) //adding the element at end.
+{
+    node *temp = new node();
+    temp->data = data;
+    temp->next = NULL;
+    
+        if(head == NULL){
+            head = temp;
+            tail = temp;
+            return ;
+        }
+else{
+    tail->next = temp;
+    tail = temp;
+}
+}
+void revserse(){
+    node *current ,*prev ,*next;
+    current = head;
+    prev = NULL;
+    while(current!=NULL){
+    next = current->next;
+    current->next = prev;
+    prev = current;
+    current = next;
+    }
+head = prev;
+}
+void print(){
+    node * temp = head;
+    while(temp!=NULL){
+        cout << temp->data << " ";
+    temp = temp->next;
+}
+cout << endl; }
+int main() {
 cout << "How many elements you want to add in the linked list: \n";
 int n,j;
 cin >>n;
