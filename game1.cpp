@@ -31,7 +31,7 @@ int main() {
         cout << "-------------------------------------------"<< endl;
         count --;
         if(count==0)
-            return 0;
+            cout << "Game ends\n";
         cout << "Trials left: "<< count << endl;
     }
     else{
