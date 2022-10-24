@@ -112,3 +112,66 @@ cout << "After reversing the list: \n";
 print();
     return 0;
 }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Doublylinked list concept:
+#include<iostream>
+using namespace std;
+struct node{
+    int data;
+    node * next;
+    node * prev;
+};
+struct node * head;
+struct node * getnewnode(int data){
+    node * newnode = new node();
+    newnode->data = data;
+    newnode->next = NULL;
+    newnode->prev = NULL;
+    return newnode;
+}
+void insertathead(int data){
+    node * temp = getnewnode(data);
+    if(head==NULL){
+    head = temp;
+    return; 
+    }
+    head->prev = temp;
+    temp->next = head;
+    head = temp;
+}
+void print(){
+    node * temp = head;
+    while(temp!=NULL)
+    {
+    cout << temp->data<< " ";
+    temp= temp->next;
+    }
+    cout << endl;
+}
+void reverseprint(){
+    node * temp = head;
+    if(temp == NULL)
+    return;
+    while(temp->next!=NULL)
+    {
+    temp = temp->next;
+    }
+    // Traversing backword now
+    while(temp!=NULL){
+    cout << temp->data <<" ";
+    temp = temp->prev;}
+    cout << endl;
+}
+int main(){
+    head = NULL;
+    insertathead(2);
+    insertathead(3);
+    insertathead(4);
+    insertathead(5);
+    insertathead(6);
+    print();
+    reverseprint();
+    return 0;
+
+}
