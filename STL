@@ -1,0 +1,26 @@
+// Using vectors and Pair(containers) in the nested sitatation/..
+-------------------------------------------------------------------------------------------------------------------------------------------
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+void printvect(vector<pair<int,string>> v){
+    for(int i=0;i<v.size();++i){
+        cout << "\nVector of Pair is: \n";
+        cout << v[i].first << " " << v[i].second;
+    }
+};
+int main(){
+    vector<pair<int,string>> v;
+    cout << "size: "<< endl;
+    int n;
+    cin >>n;
+    for(int i=0;i<n;++i){
+        int x;
+        string y;
+        cin >> x >> y;
+        v.push_back({x,y});
+    }
+    printvect(v);
+    return 0;
+}
