@@ -130,3 +130,43 @@ int main(){
     return 0;
 
 }
+________________________________________________________________________________
+// MAP
+
+#include<iostream>
+#include<map>
+using namespace std;
+void print(map<int,string> &m){
+     for(auto &pr:m)
+ cout << pr.first<< " " << pr.second << endl;
+}
+int  main(){
+ map<int,string> m;
+ m[1] = "abc";
+ m[2] = "cde";
+ m[7]= "efg";
+ m[9]="kjl";
+ m[4]="lmn";
+ m.insert({6,"hello"});
+ print(m);cout << "\n";
+auto it = m.find(3); //take iterator as parameter
+if(it!=m.end())
+m.erase(it); //takes it or element as parameter
+
+print(m);
+//-----------------------------------------------------------------------------------------
+// taking the key as input in map
+map<string,int> j;
+int n;
+cout << "total numbers of string\n";
+cin >> n; 
+for(int i =0;i<n;++i){
+    string s;
+    cin >> s;
+    j[s]++;
+}
+for(auto pr:j){
+    cout << pr.first << " " << pr.second<<endl;
+}
+ return 0;
+}
