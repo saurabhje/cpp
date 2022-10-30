@@ -170,3 +170,55 @@ for(auto pr:j){
 }
  return 0;
 }
+______________________________________________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________________________________________
+SET
+
+#include <iostream>
+#include<set>
+using namespace std;
+int main() { 
+    // ordered set
+    int n;
+    cin >> n;
+set <string> s;
+for(int i=0;i<n;i++){
+    string str;
+    cin >> str;
+    s.insert(str);
+ }
+for(auto value : s){
+    cout << value << "\n";
+}
+//____________________________________________________________________________
+// query based simple set question
+#include<bits/stdc++.h>
+using namespace std;
+int main() { 
+    int n;
+    cin >> n;
+unordered_set <string> s;
+for(int i=0;i<n;i++){
+    string str;
+    cin >> str;
+    s.insert(str);
+ }
+ int q;
+ cin >> q;
+ while(q--){
+     string str1;
+     cin >> str1;
+     if(s.find(str1)!=s.end()){
+         cout << "Yes\n";
+     }
+     else{
+         cout << "No\n";
+     }
+ }
+
+    return 0;
+}
+
+//____________________________________________________________________________
+multiset concept
+
