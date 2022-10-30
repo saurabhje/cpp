@@ -247,3 +247,35 @@ int main(){
     }
     return 0;
 }
+
+/____________________________________________________________________________
+NESTING IN STL
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    // here we want to store first name,last name and marks of a kid, pair will save the full name,and vector will save the marks.
+    map<pair<string,string>,vector<int>> m;
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        string fn,ln;
+        int ct;
+        cin >> fn>>ln>>ct;
+        for(int j=0;j<ct;j++){
+            int x;
+            cin >>x;
+            m[{fn,ln}].push_back(x);
+        }
+    }
+    for(auto &mp : m){
+        auto &pr = mp.first;
+        auto &num = mp.second;
+        cout << pr.first << " " << pr.second << endl;
+        cout << "size: "<< num.size()<< endl; //printing the vector part
+        for(auto &element : num){
+            cout << element<< "\t";
+        }
+        cout << endl;
+    }
+    return 0;
+}
