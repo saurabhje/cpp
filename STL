@@ -279,3 +279,60 @@ int main(){
     }
     return 0;
 }
+/____________________________________________________________________________/____________________________________________________________________________
+//Lower bound STL and Upper bound STL
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin >>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin >> a[i];
+    }
+    sort(a,a+n);
+    for(int i=0;i<n;i++){
+        cout << a[i]<< " ";
+    }
+    cout << endl;
+    int i;
+    cin >>i;
+    int *ptr = lower_bound(a,a+n,i);
+    cout << (*ptr) <<"\n"; 
+   
+    return 0;
+}
+
+/____________________________________________________________________________/____________________________________________________________________________
+//Simple algorithms
+#include<bits/stdc++.h>
+#include<algorithm>
+using namespace std;
+int main(){
+    int n;
+    cin >>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin >> a[i]; 
+    }
+ int min = *min_element(a,a+n);
+ int max = *max_element(a,a+n);
+  cout << accumulate(a, a + n, 0)<<"\n";
+ int ct = count(a,a+n,5);
+ cout << min << "\n"<< max << "\n"<< ct << "\n";
+ reverse(a,a+n);
+ for(int i=0;i<n;i++){
+     cout << a[i] << " ";
+ }
+    return 0;
+}
+ LAMBDA FUNCTION---
+ #include<bits/stdc++.h>
+using namespace std;
+int main(){
+vector<int> v = {2,4,8,-6};
+cout << all_of(v.begin(),v.end(),[](int x){return x %2==0;}) <<endl;; //use of lamda function
+cout << any_of(v.begin(),v.end(),[](int x){return x >0;}) << endl;
+cout << none_of(v.begin(),v.end(),[](int x){return x >0;});
+    return 0;
+}
