@@ -40,3 +40,44 @@ push(1);Print();
 Pop();Print();
 push(12);Print();
 }
+
+Linked List Array
+#include<bits/stdc++.h>
+using namespace std;
+
+struct node{
+    int data;
+    struct node* link;  //pointer variable named link which points at the next node 
+};
+struct node* top = NULL; //declaring the pointer variable named TOP(head) 
+//when list is empty it is NULL // so essentially stack is empty at first
+void Push(int x){
+    struct node* temp = new node;
+    temp->data = x;
+    temp->link = top;
+    top = temp;
+}
+void Pop(){
+    struct node*temp;
+    if(top ==NULL) return;
+    temp = top;
+    top = top->link;
+    free(temp);
+}
+void print(){
+    struct node* temp = top; //starting from top and traversing to the end
+    while(temp!=NULL){
+        cout << temp->data <<",";
+        temp = temp->link;
+    }
+    cout << endl;
+}
+int main(){
+    Push(9);print();
+    Push(10);print();
+    Push(11);print();
+    Push(12);print();
+    Pop();print();
+    Push(12);print();
+    return 0;
+}
